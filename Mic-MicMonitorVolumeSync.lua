@@ -1,7 +1,7 @@
 obs = obslua
 
-source_name_1 = "Mic"  -- Replace with your first audio source name
-source_name_2 = "Mic Monitor"  -- Replace with your second audio source name
+source_name_1 = "Mic/Aux"  -- Replace with your first audio source name
+source_name_2 = "Desktop Audio"  -- Replace with your second audio source name
 
 prev_volume_1 = 0
 prev_volume_2 = 0
@@ -42,7 +42,7 @@ function set_volume(source_name, volume)
 end
 
 function script_tick(seconds)
-    local current_time = obs.obs_get_frame_time() / 1000000000 -- Convert nanoseconds to seconds
+    local current_time = os.clock()
     if current_time - last_time >= 0.05 then  -- Run every 0.05 seconds
         last_time = current_time
 
